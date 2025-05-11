@@ -1,0 +1,16 @@
+name: Debug OIDC
+
+on: [workflow_dispatch]
+
+jobs:
+  test-oidc:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Debug OIDC Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: us-east-1
+
+      - name: Who am I?
+        run: aws sts get-caller-identity
