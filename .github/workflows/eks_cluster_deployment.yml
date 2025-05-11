@@ -28,12 +28,13 @@ jobs:
         # Authenticate using OIDC
       - name: Configure AWS Credentials (OIDC)
         id: aws-oidc
-        run: |
-          aws sts get-caller-identity
-        env:
-          AWS_ROLE_ARN: ${{ secrets.AWS_ROLE_ARN }}
-          AWS_WEB_IDENTITY_TOKEN_FILE: ${{ github.token }}
-        
+        uses: aws-actions/configure-aws-credentials@v2
+        with: 
+          role-to-assume : ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: ${{ vars.TF_VAR_region }}
+      - name: Verify identity
+        run: aws sts get-caller-identity
+
       # Set Environment-Specific Variables (from GitHub Secrets or Environments)
       - name: Set Terraform Variables
         id: set-vars
