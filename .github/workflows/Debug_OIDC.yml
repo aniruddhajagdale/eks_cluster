@@ -9,7 +9,7 @@ jobs:
       - name: Debug OIDC Credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
-          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          role-to-assume: arn:aws:iam::962507723149:role/Github-OIDC-Role
           aws-region: us-east-1
 
       - name: Who am I?
