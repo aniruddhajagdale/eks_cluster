@@ -40,6 +40,8 @@ jobs:
       - name: Set Terraform Variables
         run: |
           echo 'TF_VAR_env=${{ vars.TF_VAR_env }}' >> $GITHUB_ENV
+          echo 'TF_VAR_key=${{ vars.TF_VAR_key }}' >> $GITHUB_ENV
+          echo 'TF_VAR_backend_bucket=${{ vars.TF_VAR_backend_bucket }}' >> $GITHUB_ENV
           echo 'TF_VAR_cidr_block=${{ vars.TF_VAR_cidr_block }}' >> $GITHUB_ENV
           echo 'TF_VAR_private_subnets_cidr=${{ vars.TF_VAR_private_subnets_cidr }}' >> $GITHUB_ENV
           echo 'TF_VAR_public_subnets_cidr=${{ vars.TF_VAR_public_subnets_cidr }}' >> $GITHUB_ENV
