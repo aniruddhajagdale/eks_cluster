@@ -36,6 +36,9 @@ jobs:
       - name: Verify identity
         run: aws sts get-caller-identity
 
+      - name: Print Environment Variables
+        run: env | grep TF_VAR
+
       # Set Environment-Specific Variables (from GitHub Secrets or Environments)
       - name: Set Terraform Variables
         run: |
