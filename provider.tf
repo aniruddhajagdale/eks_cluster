@@ -13,7 +13,7 @@ terraform {
 
 provider "aws" {
   region  = "us-west-1"
-  profile = "rnd_user"
+  profile = var.region
 }
 
 data "aws_eks_cluster_auth " "cluster_name" {
