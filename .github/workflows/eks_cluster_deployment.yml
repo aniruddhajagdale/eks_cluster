@@ -27,7 +27,6 @@ jobs:
 
         # Authenticate using OIDC
       - name: Configure AWS Credentials (OIDC)
-        id: aws-oidc
         uses: aws-actions/configure-aws-credentials@v2
         with: 
           role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
