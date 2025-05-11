@@ -6,11 +6,12 @@ jobs:
   test-oidc:
     runs-on: ubuntu-latest
     steps:
-      - name: Debug OIDC Credentials
+      - name: Configure AWS Credentials (Access Keys)
         uses: aws-actions/configure-aws-credentials@v2
         with:
-          role-to-assume: arn:aws:iam::962507723149:role/Github-OIDC-Role
-          aws-region: us-east-1
-
+          aws-access-key-id: AKIA6AGPOKGG64ZQZG7Q
+          aws-secret-access-key: 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
+          aws-region: ${{ vars.TF_VAR_region }}
+          
       - name: Who am I?
         run: aws sts get-caller-identity
