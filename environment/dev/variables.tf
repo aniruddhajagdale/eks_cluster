@@ -31,7 +31,7 @@ variable "cluster_name" {
 variable "cluster_version" {
   type        = string
   description = "Version of the EKS cluster"
-  default     = "1.28"
+  default     = "1.29"
 }
 variable "max_size" {
   type        = number
