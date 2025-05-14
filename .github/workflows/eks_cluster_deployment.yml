@@ -5,7 +5,8 @@ on:
     branches:
       - main
       - dev
-  
+    paths:
+      - '**.tf'
 jobs:
   terraform:
     runs-on: ubuntu-latest
